@@ -15,13 +15,18 @@ Have a Dream or want to find out what your dream is if you gave yourself that ch
 Adds rewards for improving "Bad" screen time usage and for increasing "Good" screen time usage (or null usage)
 Drop Youtube,Tiktok,Instagram reels, etc. 
 Buy your time back! 
-# Standard Version: Keeps it simple, Just a to-do list with standard features for the app.
+# Standard Version: 
+Keeps it simple, Just a to-do list with standard features for the app.
 # "Missions"
 everything from fulfilling todays checklist to saving X dollars a week to retiring by 50, even getting your college degree.
 # "Experience"
-# "Friends progress" See your friends XP and compete against them
-# "Friends vouch" Friends vouch progress against one another
-# "Small steps" and "Large leaps"  have small goals that work together to accomplish the bigger picture
-# NO POP UP ADS!!! there will be a single bar across the top/bottom of screen, no "watch add for X" ever!
+# Friends progress: 
+See your friends XP and compete against them
+# Friends vouch 
+Friends vouch progress against one another
+# Small steps and Large leaps:
+have small goals that work together to accomplish the bigger picture
+# NO POP UP ADS
+there will be a single bar across the top/bottom of screen, no "watch add for X" ever!
 # Base/Standard app available offline
 # 

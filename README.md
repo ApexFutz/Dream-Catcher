@@ -9,7 +9,7 @@ Have a Dream or want to find out what your dream is if you gave yourself that ch
 
 ## Take state of the art Career tests from elementary level to Expert, attached with certifications and videos to learn from on a massive
 ## Range of options, talk to Ai or even Experts in the app. 
-## Answering Questions Rewards you will Xp/in app rewards/other benefits
+## Answering Questions will Reward you with Xp/in app rewards/other benefits
 
 ## Better Version: Adds rewards for improving "Bad" screen time usage and for increasing "Good" screen time usage (or null usage)
 Drop Youtube,Tiktok,Instagram reels, etc. 

@@ -3,9 +3,9 @@ Have a Dream or want to find out what your dream is if you gave yourself that ch
 
 # Allows app to track time on app each day to impact in app features
 # 3 settings
-Standard - "Seed"
-Better - "Sapling"
-Best - "Evergreen"
+    Standard - "Seed"
+    Better - "Sapling"
+    Best - "Evergreen"
 
 ## Best Version behind monthly/yearly paywall but well worth it!
 ## Take state of the art Career tests from elementary level to Expert, attached with certifications and videos to learn from on a massive

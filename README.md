@@ -11,7 +11,8 @@ Have a Dream or want to find out what your dream is if you gave yourself that ch
 ## Range of options, talk to Ai or even Experts in the app. 
 ## Answering Questions will Reward you with Xp/in app rewards/other benefits
 
-## Better Version: Adds rewards for improving "Bad" screen time usage and for increasing "Good" screen time usage (or null usage)
+#Good/Bad meter
+Adds rewards for improving "Bad" screen time usage and for increasing "Good" screen time usage (or null usage)
 Drop Youtube,Tiktok,Instagram reels, etc. 
 Buy your time back! 
 # Standard Version: Keeps it simple, Just a to-do list with standard features for the app.

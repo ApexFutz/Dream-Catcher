@@ -1,7 +1,10 @@
 # Dream-Catcher
 Have a Dream or want to find out what your dream is if you gave yourself that chance? Lets do this!
 
-# Allows app to track time on app each day to impact in app features
+##QoL allowances
+Allow app to track other apps
+time on app each day to impact in app features
+
 # 3 settings
     Standard - "Seed" (Free)
     Better - "Sapling" ($9.99)
@@ -29,3 +32,4 @@ have small goals that work together to accomplish the bigger picture
 # NO POP UP ADS
 there will be a single bar across the top/bottom of screen, no "watch add for X" ever!
 # Base/Standard app available offline
+Sometimes your goals are off the grid

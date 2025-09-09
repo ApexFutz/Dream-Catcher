@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Catcher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>Dream Catcher</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('profile')" class="nav-link active">Profile</a></li>
+                <li><a href="#" onclick="showPage('todolist')" class="nav-link">To Do List</a></li>
+                <li><a href="#" onclick="showPage('journey')" class="nav-link">Journey Tree</a></li>
+                <li><a href="#" onclick="showPage('social')" class="nav-link">Social</a></li>
+            </ul>
+        </nav>
+
+        <!-- Profile Page -->
+        <div id="profile" class="page active">
+            <div class="page-header">
+                <h2>Profile</h2>
+            </div>
+            <div class="profile-content">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <div class="avatar-circle">
+                            <span id="avatar-initials">JD</span>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <div class="form-group">
+                            <label for="username">Name:</label>
+                            <input type="text" id="username" placeholder="Enter your name" value="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" placeholder="Enter your email" value="john.doe@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Bio:</label>
+                            <textarea id="bio" placeholder="Tell us about yourself" rows="4">Passionate about productivity and getting things done!</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-id">Your Profile ID:</label>
+                            <div class="profile-id-container">
+                                <input type="text" id="profile-id" readonly>
+                                <button onclick="copyProfileId()" class="btn btn-secondary">Copy</button>
+                            </div>
+                        </div>
+                        <button onclick="saveProfile()" class="btn btn-primary">Save Profile</button>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <h3>Your Stats</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-tasks">0</span>
+                            <span class="stat-label">Total Tasks</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="completed-tasks">0</span>
+                            <span class="stat-label">Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="pending-tasks">0</span>
+                            <span class="stat-label">Pending</span>
+                        </div>
+                        <div class="stat-item seeds-stat">
+                            <span class="stat-number" id="seeds-count">0</span>
+                            <span class="stat-label">🌱 Seeds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Todo List Page -->
+        <div id="todolist" class="page">
+            <div class="page-header">
+                <h2>To Do List</h2>
+            </div>
+            <div class="todo-content">
+                <div class="add-task-section">
+                    <div class="input-group">
+                        <input type="text" id="new-task" placeholder="Add a new task..." required>
+                        <select id="task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                        <button onclick="addTask()" class="btn btn-primary">Add Task</button>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <button class="filter-btn active" data-filter="all" onclick="filterTasks('all')">All</button>
+                    <button class="filter-btn" data-filter="pending" onclick="filterTasks('pending')">Pending</button>
+                    <button class="filter-btn" data-filter="completed" onclick="filterTasks('completed')">Completed</button>
+                </div>
+                
+                <ul id="task-list" class="task-list"></ul>
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <p>No tasks found. Add a task to get started!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Journey Tree Page -->
+        <div id="journey" class="page">
+            <div class="page-header">
+                <h2>Journey Tree</h2>
+                <p>Visualize your progress and achievements</p>
+            </div>
+            <div class="journey-content">
+                <div class="tree-container">
+                    <!-- Falling leaves for ambiance -->
+                    <div class="falling-leaf"></div>
+                    <div class="falling-leaf"></div>
+                    <div class="falling-leaf"></div>
+                    
+                    <div class="tree-trunk">
+                        <div class="growth-ring"></div>
+                        <div class="growth-ring"></div>
+                        <div class="growth-ring"></div>
+                        <div class="growth-ring"></div>
+                    </div>
+                    <div class="tree-branches" id="tree-branches">
+                        <!-- Branches will be dynamically generated based on completed tasks -->
+                    </div>
+                    <div class="tree-leaves" id="tree-leaves">
+                        <!-- Leaves will represent completed tasks -->
+                    </div>
+                </div>
+                <div class="journey-stats">
+                    <div class="achievement-card">
+                        <h3>Growth Milestones</h3>
+                        <div class="milestone-list" id="milestone-list">
+                            <div class="milestone">
+                                <span class="milestone-icon">🌱</span>
+                                <span class="milestone-text">First Task Completed</span>
+                                <span class="milestone-status" id="milestone-1">Not Achieved</span>
+                            </div>
+                            <div class="milestone">
+                                <span class="milestone-icon">🌿</span>
+                                <span class="milestone-text">5 Tasks Completed</span>
+                                <span class="milestone-status" id="milestone-5">Not Achieved</span>
+                            </div>
+                            <div class="milestone">
+                                <span class="milestone-icon">🌳</span>
+                                <span class="milestone-text">10 Tasks Completed</span>
+                                <span class="milestone-status" id="milestone-10">Not Achieved</span>
+                            </div>
+                            <div class="milestone">
+                                <span class="milestone-icon">🏆</span>
+                                <span class="milestone-text">25 Tasks Completed</span>
+                                <span class="milestone-status" id="milestone-25">Not Achieved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Page -->
+        <div id="social" class="page">
+            <div class="page-header">
+                <h2>Social</h2>
+                <p>Connect with friends and share your journey</p>
+            </div>
+            <div class="social-content">
+                <div class="social-main">
+                    <div class="add-friend-section">
+                        <h3>Add Friend</h3>
+                        <div class="input-group">
+                            <input type="text" id="friend-id-input" placeholder="Enter friend's Profile ID..." required>
+                            <button onclick="addFriend()" class="btn btn-primary">Add Friend</button>
+                        </div>
+                    </div>
+                    
+                    <div class="friends-section">
+                        <h3>Your Friends</h3>
+                        <div id="friends-list" class="friends-list">
+                            <!-- Friends will be dynamically loaded here -->
+                        </div>
+                        <div id="no-friends" class="empty-state" style="display: none;">
+                            <p>No friends yet. Add some friends to get started!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-sidebar">
+                    <div class="social-stats-card">
+                        <h3>Social Stats</h3>
+                        <div class="social-stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number" id="friends-count">0</span>
+                                <span class="stat-label">👥 Friends</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="friend-requests">0</span>
+                                <span class="stat-label">📨 Requests</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-activity-card">
+                        <h3>Recent Activity</h3>
+                        <div id="activity-feed" class="activity-feed">
+                            <div class="activity-item">
+                                <span class="activity-icon">🎉</span>
+                                <span class="activity-text">Welcome to Dream Catcher Social!</span>
+                                <span class="activity-time">Just now</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

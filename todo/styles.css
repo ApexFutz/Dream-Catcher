@@ -1,0 +1,1017 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #2d1d3d 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.nav-brand h1 {
+    color: #2d1d3d;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #666;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: linear-gradient(135deg, #667eea, #2d1d3d);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Page Styles */
+.page {
+    display: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    min-height: 600px;
+}
+
+.page.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.page-header h2 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Profile Page Styles */
+.profile-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #2d1d3d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+#avatar-initials {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.stats-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stats-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.stats-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: #f8f9ff;
+    border-radius: 10px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Seeds Currency Styling */
+.seeds-stat {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb) !important;
+    border: 2px solid #28a745;
+    position: relative;
+    overflow: hidden;
+}
+
+.seeds-stat::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(40, 167, 69, 0.1), transparent);
+    animation: seedsShimmer 3s ease-in-out infinite;
+}
+
+@keyframes seedsShimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    50% { transform: translateX(0%) translateY(0%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.seeds-stat .stat-number {
+    color: #28a745 !important;
+    text-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.seeds-stat .stat-label {
+    color: #155724 !important;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+/* Button Styles */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #2d1d3d);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Todo List Styles */
+.add-task-section {
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+#new-task {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#new-task:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#task-priority {
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+}
+
+.filter-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: linear-gradient(135deg, #667eea, #2d1d3d);
+    color: white;
+    border-color: transparent;
+}
+
+.task-list {
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.task-item {
+    background: white;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.task-item.completed {
+    opacity: 0.7;
+    background: #f8f9ff;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.task-priority {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.priority-high {
+    background: #ffe6e6;
+    color: #d63031;
+}
+
+.priority-medium {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.priority-low {
+    background: #d4edda;
+    color: #155724;
+}
+
+.task-delete {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.task-delete:hover {
+    background: #ff5252;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+/* Journey Tree Styles */
+.journey-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.tree-container {
+    position: relative;
+    height: 500px;
+    background: linear-gradient(to bottom, 
+        #87CEEB 0%, 
+        #B0E0E6 30%, 
+        #98FB98 70%, 
+        #90EE90 85%, 
+        #228B22 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Add grass at the bottom */
+.tree-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to top, #228B22, #32CD32);
+    background-image: 
+        radial-gradient(circle at 10% 50%, #2E8B57 2px, transparent 2px),
+        radial-gradient(circle at 30% 60%, #2E8B57 1px, transparent 1px),
+        radial-gradient(circle at 50% 40%, #2E8B57 1.5px, transparent 1.5px),
+        radial-gradient(circle at 70% 55%, #2E8B57 1px, transparent 1px),
+        radial-gradient(circle at 90% 45%, #2E8B57 2px, transparent 2px);
+}
+
+/* Add floating clouds */
+.tree-container::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    box-shadow: 
+        80px 10px 0 -5px rgba(255, 255, 255, 0.6),
+        160px -5px 0 -8px rgba(255, 255, 255, 0.4);
+    animation: cloudFloat 20s ease-in-out infinite;
+}
+
+@keyframes cloudFloat {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+}
+
+.tree-trunk {
+    width: 50px;
+    height: 180px;
+    background: linear-gradient(to right, 
+        #654321 0%, 
+        #8B4513 20%, 
+        #A0522D 40%, 
+        #8B4513 60%, 
+        #654321 80%, 
+        #5D4037 100%);
+    border-radius: 25px 25px 8px 8px;
+    position: relative;
+    box-shadow: 
+        inset -8px 0 15px rgba(0, 0, 0, 0.4),
+        inset 8px 0 15px rgba(139, 69, 19, 0.3),
+        0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* Add bark texture */
+.tree-trunk::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, transparent 48%, rgba(0, 0, 0, 0.1) 49%, rgba(0, 0, 0, 0.1) 51%, transparent 52%),
+        linear-gradient(0deg, transparent 48%, rgba(0, 0, 0, 0.05) 49%, rgba(0, 0, 0, 0.05) 51%, transparent 52%);
+    background-size: 8px 8px, 12px 16px;
+    border-radius: 25px 25px 8px 8px;
+}
+
+/* Multiple growth rings */
+.growth-ring {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #5D4037;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.growth-ring:nth-child(1) {
+    top: 30px;
+    width: 35px;
+    height: 2px;
+}
+
+.growth-ring:nth-child(2) {
+    top: 60px;
+    width: 32px;
+    height: 2px;
+}
+
+.growth-ring:nth-child(3) {
+    top: 90px;
+    width: 38px;
+    height: 2px;
+}
+
+.growth-ring:nth-child(4) {
+    top: 120px;
+    width: 30px;
+    height: 2px;
+}
+
+.tree-branches {
+    position: absolute;
+    bottom: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.branch {
+    position: absolute;
+    background: linear-gradient(to right, #654321, #8B4513, #654321);
+    border-radius: 15px;
+    transform-origin: bottom center;
+    box-shadow: 
+        inset -2px 0 4px rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Add small twigs to branches */
+.branch::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: -8px;
+    width: 15px;
+    height: 2px;
+    background: #654321;
+    border-radius: 2px;
+    transform: rotate(25deg);
+    box-shadow: 
+        -10px 8px 0 -1px #654321,
+        -5px -6px 0 -1px #654321;
+}
+
+.tree-leaves {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+.leaf {
+    position: absolute;
+    width: 16px;
+    height: 24px;
+    background: linear-gradient(135deg, #228B22 0%, #32CD32 50%, #90EE90 100%);
+    border-radius: 50% 0 50% 50%;
+    transform-origin: bottom center;
+    animation: leafSway 4s ease-in-out infinite;
+    box-shadow: 
+        inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Leaf variations */
+.leaf:nth-child(2n) {
+    background: linear-gradient(135deg, #2E8B57 0%, #3CB371 50%, #98FB98 100%);
+    animation-delay: -1s;
+}
+
+.leaf:nth-child(3n) {
+    background: linear-gradient(135deg, #006400 0%, #228B22 50%, #32CD32 100%);
+    animation-delay: -2s;
+    transform: scale(0.8);
+}
+
+.leaf:nth-child(4n) {
+    background: linear-gradient(135deg, #1E90FF 0%, #32CD32 50%, #ADFF2F 100%);
+    animation-delay: -0.5s;
+    transform: scale(1.1);
+}
+
+/* Add leaf veins */
+.leaf::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    width: 1px;
+    height: 80%;
+    background: rgba(0, 0, 0, 0.2);
+    transform: translateX(-50%);
+}
+
+.leaf::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 60%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%) rotate(-30deg);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+@keyframes leafSway {
+    0%, 100% { 
+        transform: rotate(0deg) translateX(0) scale(1); 
+    }
+    25% { 
+        transform: rotate(2deg) translateX(2px) scale(1.02); 
+    }
+    50% { 
+        transform: rotate(-1deg) translateX(-1px) scale(0.98); 
+    }
+    75% { 
+        transform: rotate(1deg) translateX(1px) scale(1.01); 
+    }
+}
+
+/* Add seasonal leaf falling animation */
+@keyframes leafFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* Occasionally falling leaves */
+.tree-container .falling-leaf {
+    position: absolute;
+    width: 12px;
+    height: 16px;
+    background: linear-gradient(135deg, #DAA520 0%, #FF8C00 50%, #CD853F 100%);
+    border-radius: 50% 0 50% 50%;
+    animation: leafFall 3s ease-in infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.falling-leaf:nth-child(1) {
+    top: 150px;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.falling-leaf:nth-child(2) {
+    top: 120px;
+    left: 70%;
+    animation-delay: 1s;
+}
+
+.falling-leaf:nth-child(3) {
+    top: 180px;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.achievement-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.milestone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f8f9ff;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.milestone.achieved {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    border-left: 4px solid #28a745;
+}
+
+.milestone-icon {
+    font-size: 1.5rem;
+}
+
+.milestone-text {
+    flex: 1;
+    font-weight: 500;
+}
+
+.milestone-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: #e9ecef;
+    color: #6c757d;
+}
+
+.milestone-status.achieved {
+    background: #28a745;
+    color: white;
+}
+
+/* Social Page Styles */
+.social-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.social-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.add-friend-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.add-friend-section h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.friends-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.friends-section h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.friend-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9ff;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.friend-item:hover {
+    background: #e8f0ff;
+    transform: translateY(-2px);
+}
+
+.friend-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #2d1d3d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.friend-info {
+    flex: 1;
+}
+
+.friend-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.friend-status {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.friend-stats {
+    display: flex;
+    gap: 15px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.friend-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 15px;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+}
+
+.social-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.social-stats-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.social-stats-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.social-stats-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.recent-activity-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.recent-activity-card h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+    background: #f8f9ff;
+    border-radius: 8px;
+}
+
+.activity-icon {
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.activity-text {
+    flex: 1;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    color: #888;
+    white-space: nowrap;
+}
+
+.profile-id-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.profile-id-container input {
+    flex: 1;
+    background: #f8f9ff;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* Online status indicators */
+.friend-status.online {
+    color: #28a745;
+}
+
+.friend-status.offline {
+    color: #6c757d;
+}
+
+.friend-status::before {
+    content: '●';
+    margin-right: 5px;
+}
+
+.friend-status.online::before {
+    color: #28a745;
+}
+
+.friend-status.offline::before {
+    color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .profile-content,
+    .journey-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .filter-section {
+        flex-wrap: wrap;
+    }
+    
+    .page {
+        padding: 20px;
+    }
+}
